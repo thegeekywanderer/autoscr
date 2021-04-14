@@ -1,5 +1,6 @@
 #!/bin/bash
 
+sleep 10
 
 adb_check=`adb devices | awk -F " " 'FNR>1 {print $2}'`
 
