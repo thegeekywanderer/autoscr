@@ -2,6 +2,7 @@
 
 user=`whoami`
 sed -i "s/USER/$user/g" wifi_mirror.service
+sed -i "s/USER/$user/g" wifi_mirror.sh
 
 sudo cp wifi_mirror.sh /usr/local/bin/
 sudo cp mirror_suspend.sh /lib/systemd/system-sleep/
