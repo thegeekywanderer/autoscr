@@ -1,9 +1,9 @@
 #!/bin/bash
 
-systemctl --user disable wifi_mirror.service
-systemctl --user stop wifi_mirror.service
+systemctl --user disable airscr.service
+systemctl --user stop airscr.service
 
-sudo rm /usr/local/bin/wifi_mirror.sh
-rm -f $HOME/.local/share/systemd/user/wifi_mirror.service
+sudo rm /usr/local/bin/airscr
+rm -f $HOME/.local/share/systemd/user/airscr.service
 
 systemctl --user daemon-reload
