@@ -4,8 +4,9 @@ Description=Wifi Mirroring
 [Service]
 Environment="DISPLAY=:0"
 Environment="XAUTHORITY=/home/wolf/.Xauthority"
-ExecStart=/usr/local/bin/wifi_mirror.sh
+ExecStart=wifi_mirror.sh
 Restart=on-failure
+KillMode=process
 
 [Install]
-WantedBy=graphical.target
+WantedBy=default.target

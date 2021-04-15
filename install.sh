@@ -4,9 +4,11 @@ user=`whoami`
 sed -i "s/USER/$user/g" wifi_mirror.service
 sed -i "s/USER/$user/g" wifi_mirror.sh
 
-sudo cp wifi_mirror.sh /usr/local/bin/
-sudo cp wifi_mirror.service /etc/systemd/system/
+mkdir -p $HOME/.local/share/systemd/user
 
-sudo systemctl daemon-reload
-sudo systemctl start wifi_mirror.service
-sudo systemctl enable wifi_mirror.service
+sudo cp wifi_mirror.sh /usr/local/bin/
+cp wifi_mirror.service $HOME/.local/share/systemd/user/
+
+sudo systemctl --user daemon-reload
+sudo systemctl --user enable wifi_mirror.service
+sudo systemctl --user start wifi_mirror.service

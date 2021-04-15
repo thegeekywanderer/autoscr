@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sleep 10
+adb start-server
 
 adb_check=`adb devices | awk -F " " 'FNR>1 {print $2}'`
 
@@ -28,9 +28,6 @@ else
                     scrcpy --bit-rate 2M --max-size 800 --window-x 1500 --window-y 150 --window-title "wolf's Phone"
 
                     break
-                else
-                    adb kill-server
-                    adb start-server
                 fi
             else 
                 zenity --error --text="Device not on same LAN... Connect to same WiFi and try again" --title="wolf's Mirror Script" --width=300 --height=100 
