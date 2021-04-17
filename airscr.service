@@ -3,7 +3,7 @@ Description=Wifi Mirroring
 
 [Service]
 Environment="DISPLAY=:0"
-Environment="XAUTHORITY=/home/wolf/.Xauthority"
+Environment="XAUTHORITY=/home/USER/.Xauthority"
 ExecStart=airscr
 Restart=on-failure
 KillMode=process
