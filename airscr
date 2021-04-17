@@ -10,6 +10,8 @@ else
     adb start-server
     source $dest_dir
     adb connect $IP_ADDR
+    sleep 3
+
     adb_check=`adb devices | awk -F " " 'FNR>1 {print $2}'`
     
     if [[ $adb_check == *"device"* ]]; 
@@ -38,7 +40,8 @@ else
             then
                 ip_addr=`adb shell ip addr show wlan0 | grep "inet\s" | awk '{print $2}' | awk -F'/' '{print $1}'`
                 adb tcpip 5555
-                zenity --info --text="You can remove the device now" --title="airscr" --width=300 --height=100
+                notify-send -t 6000 "You can remove the device now" 
+                sleep 3
                 if [[ `hostname -I | awk -F '.' '{print $1}'` == `cut -d '.' -f1 <<<"$ip_addr"` ]] && [[ `hostname -I | awk -F '.' '{print $2}'` == `cut -d '.' -f2 <<<"$ip_addr"` ]];
                 then
                     adb connect $ip_addr:5555
