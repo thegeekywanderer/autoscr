@@ -1,8 +1,6 @@
 #!/bin/bash
 
-user=`whoami`
-sed -i "s/USER/$user/g" airscr.service
-sed -i "s/USER/$user/g" airscr
+sed -i "s/USER/$USER/g" airscr.service
 
 mkdir -p $HOME/.local/share/systemd/user
 

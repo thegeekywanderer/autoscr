@@ -19,7 +19,7 @@ else
         dev_id=`adb devices | awk -F " " 'FNR==2 {print $1}' | awk -F ":" '{print $1}'`
         if [[ $dev_id =~ ^[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
             echo "IP_ADDR=$dev_id" > $dest_dir
-            scrcpy -s $dev_id --bit-rate 2M --max-size 800 --window-x 1500 --window-y 150 --window-title "USER's Phone"
+            scrcpy -s $dev_id --bit-rate 2M --max-size 800 --window-x 1500 --window-y 150 --window-title "$USER's Phone"
         else
             dev_id=`adb devices | awk -F " " 'FNR==2 {print $1}'`
             ip_addr=`adb -s $dev_id shell ip addr show wlan0 | grep "inet\s" | awk '{print $2}' | awk -F'/' '{print $1}'`
@@ -27,7 +27,7 @@ else
             sleep 2
             adb connect $ip_addr
             echo "IP_ADDR=$ip_addr" > $dest_dir
-            scrcpy -s $ip_addr --bit-rate 2M --max-size 800 --window-x 1500 --window-y 150 --window-title "USER's Phone"
+            scrcpy -s $ip_addr --bit-rate 2M --max-size 800 --window-x 1500 --window-y 150 --window-title "$USER's Phone"
         fi
 
     else
@@ -49,7 +49,7 @@ else
                     if [[ `adb devices | awk -F " " 'FNR>1 {print $2}'` == *"device"* ]];
                     then
                         echo "IP_ADDR=$ip_addr" > $dest_dir
-                        scrcpy -s $ip_addr --bit-rate 2M --max-size 800 --window-x 1500 --window-y 150 --window-title "USER's Phone"
+                        scrcpy -s $ip_addr --bit-rate 2M --max-size 800 --window-x 1500 --window-y 150 --window-title "$USER's Phone"
 
                         break
                     fi
