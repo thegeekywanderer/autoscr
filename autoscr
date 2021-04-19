@@ -1,12 +1,12 @@
 #!/bin/bash
 
 
-if pidof -o %PPID -x "airscr">/dev/null;
+if pidof -o %PPID -x "autoscr">/dev/null;
 then
-    zenity --error --text="Daemon already running. Connect device via USB if the window is not visible" --title="airscr" --width=300 --height=100
+    zenity --error --text="Daemon already running. Connect device via USB if the window is not visible" --title="autoscr" --width=300 --height=100
 
 else
-    dest_dir=$HOME/.local/share/airscr_ip
+    dest_dir=$HOME/.local/share/autoscr_ip
     adb start-server
     source $dest_dir
     adb connect $IP_ADDR
@@ -54,7 +54,7 @@ else
                         break
                     fi
                 else 
-                    zenity --error --text="Device not on same LAN... Connect to same WiFi and try again" --title="airscr" --width=300 --height=100 
+                    zenity --error --text="Device not on same LAN... Connect to same WiFi and try again" --title="autoscr" --width=300 --height=100 
                 fi
             fi
         done
