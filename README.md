@@ -5,7 +5,7 @@ Alongside KDE Connect this script has become my ultimate productivity tool becau
 ### Installation
 Make sure that your system has zenity and notify-send
 ```
-sudo apt install zenity libnotify-bin
+sudo apt install scrcpy zenity libnotify-bin
 ```
 #### Run the installation script
 ```
