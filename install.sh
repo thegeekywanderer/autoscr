@@ -11,3 +11,4 @@ cp autoscr_ip $HOME/.local/share/autoscr_ip
 systemctl --user daemon-reload
 systemctl --user enable autoscr.service
 systemctl --user start autoscr.service
+sudo adb start-server

@@ -7,9 +7,9 @@ then
 
 else
     dest_dir=$HOME/.local/share/autoscr_ip
-    adb start-server
+    sudo adb start-server
     source $dest_dir
-    adb connect $IP_ADDR
+    adb connect $IP_ADDR:5555
     sleep 3
 
     adb_check=`adb devices | awk -F " " 'FNR>1 {print $2}'`
@@ -25,7 +25,7 @@ else
             ip_addr=`adb -s $dev_id shell ip addr show wlan0 | grep "inet\s" | awk '{print $2}' | awk -F'/' '{print $1}'`
             adb -s $dev_id tcpip 5555
             sleep 2
-            adb connect $ip_addr
+            adb connect $ip_addr:5555
             echo "IP_ADDR=$ip_addr" > $dest_dir
             scrcpy -s $ip_addr --turn-screen-off --bit-rate 4M --max-size 800 --window-x 1500 --window-y 150 --window-title "$USER's Phone"
         fi
